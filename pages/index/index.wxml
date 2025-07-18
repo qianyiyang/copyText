@@ -1,0 +1,23 @@
+<!--index.wxml-->
+<view style="padding-bottom: 20px;">
+  <van-cell-group>
+    <van-field
+      model:value="{{ value }}"
+      type="textarea"
+      placeholder="请输入"
+      autosize
+      input-class="textareacontent"
+    />
+  </van-cell-group>
+  <view style="padding: 10px;">
+    <van-button size="large" type="primary" bind:click="handleText">生成</van-button>
+  </view>
+  <van-cell-group wx:if="{{listData.length !== 0}}">
+    <van-cell wx:for="{{listData}}" wx:key="index">
+      <view slot="title" style="display: flex;">
+        <view style="margin-right: 5px;">{{index + 1}}.</view>
+        <view style="flex: 1;" bindtap="handleCopy" data-index="{{index}}" data-text="{{item}}">{{item}}</view>
+      </view>
+    </van-cell>
+  </van-cell-group>
+</view>
