@@ -19,7 +19,7 @@ Page({
   },
 
   handleText(){
-    const arr = this.data.value && this.data.value.replace(/\n/g, '').split(/\d+\./).map(item => item.trim()).filter((item,index) => index !== 0);
+    const arr = this.data.value && this.data.value.split(/\d+\./).map(item => item.replace(/\n/g, '').trim()).filter((item,index) => index !== 0);
     wx.setStorage({
       key:"list",
       data: arr
